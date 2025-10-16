@@ -2,20 +2,20 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { AcademicCapIcon, BriefcaseIcon, DocumentArrowDownIcon } from '@heroicons/react/24/outline'
+import { AcademicCapIcon, BriefcaseIcon, DocumentArrowDownIcon, EyeIcon } from '@heroicons/react/24/outline'
 
 const education = [
   {
     institution: 'University of Eldoret',
     degree: 'Bachelor of Science in Computer Science',
-    period: '2021 - 2025',
+    period: '2017 - 2022',
     description: 'Relevant coursework: Data Structures, Algorithms, Software Engineering, Database Systems, Web Development, Machine Learning, Object-Oriented Programming, Computer Networks',
     gpa: '3.8/4.0'
   },
   {
     institution: 'High School',
     degree: 'Kenya Certificate of Secondary Education (KCSE)',
-    period: '2017 - 2020',
+    period: '2013 - 2016',
     description: 'Graduated with excellent performance. Active member of Computer Science Club and Mathematics team.',
     gpa: 'A- (Distinction)'
   }
@@ -23,25 +23,25 @@ const education = [
 
 const experience = [
   {
-    company: 'Tech Startup Inc.',
-    position: 'Frontend Developer Intern',
-    period: 'Jun 2024 - Aug 2024',
-    description: 'Developed responsive web applications using React and TypeScript. Collaborated with design team to implement user interfaces and improved website performance by 30%.',
-    technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Git']
-  },
-  {
-    company: 'University IT Department',
-    position: 'Student Web Developer',
-    period: 'Sep 2023 - May 2024',
-    description: 'Maintained and updated university department websites. Created automated scripts for data processing and improved website accessibility compliance.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL']
+    company: 'Freelance',
+    position: 'Cybersecurity Specialist & Penetration Tester',
+    period: '2023 - Present',
+    description: 'Specialized in cybersecurity consulting, penetration testing, and vulnerability assessments. Proficient in various security tools and methodologies with extensive experience in Windows and Linux environments, particularly Parrot OS.',
+    technologies: ['Kali Linux', 'Parrot OS', 'Metasploit', 'Nmap', 'Burp Suite', 'Wireshark', 'OWASP', 'Windows Server']
   },
   {
     company: 'Freelance',
-    position: 'Web Developer',
+    position: 'Full Stack Web Developer',
     period: '2022 - Present',
-    description: 'Built custom websites for local businesses and startups. Managed full project lifecycle from requirements gathering to deployment and maintenance.',
-    technologies: ['Next.js', 'React', 'Node.js', 'MongoDB']
+    description: 'Developing custom web applications and websites for clients using modern technologies. Focus on responsive design, user experience, and performance optimization while maintaining security best practices.',
+    technologies: ['React', 'Next.js', 'Node.js', 'TypeScript', 'Python', 'MongoDB', 'PostgreSQL']
+  },
+  {
+    company: 'Self-Directed Learning',
+    position: 'Cybersecurity & Software Development',
+    period: '2020 - 2022',
+    description: 'Intensive self-study in cybersecurity methodologies, penetration testing techniques, and advanced web development. Gained hands-on experience with various operating systems and security tools.',
+    technologies: ['Linux', 'Windows OS', 'Python', 'JavaScript', 'Network Security', 'System Administration']
   }
 ]
 
@@ -72,9 +72,14 @@ export default function Resume() {
   }
 
   const downloadResume = () => {
-    // Replace with your actual resume link
-    const resumeUrl = 'RESUME_LINK'
-    window.open(resumeUrl, '_blank')
+    // Download the resume PDF
+    const resumeUrl = '/Victor_Kipkirui_CV.pdf'
+    const link = document.createElement('a')
+    link.href = resumeUrl
+    link.download = 'Victor_Kipkirui_CV.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -87,22 +92,35 @@ export default function Resume() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Resume
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
-            My educational background and professional experience in software development.
+          <p className="text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-8">
+            My educational background and professional experience in software development and cybersecurity.
           </p>
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            onClick={downloadResume}
-            className="btn-primary inline-flex items-center space-x-2"
-          >
-            <DocumentArrowDownIcon className="h-5 w-5" />
-            <span>Download Resume</span>
-          </motion.button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              onClick={() => window.open('/Victor_Kipkirui_CV.pdf', '_blank')}
+              className="btn-secondary inline-flex items-center space-x-2"
+            >
+              <EyeIcon className="h-5 w-5" />
+              <span>View Resume</span>
+            </motion.button>
+            
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              onClick={downloadResume}
+              className="btn-primary inline-flex items-center space-x-2"
+            >
+              <DocumentArrowDownIcon className="h-5 w-5" />
+              <span>Download Resume</span>
+            </motion.button>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -114,7 +132,7 @@ export default function Resume() {
           >
             <div className="flex items-center mb-8">
               <AcademicCapIcon className="h-8 w-8 text-primary-600 mr-3" />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Education</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Education</h3>
             </div>
             
             <div className="space-y-6">
@@ -129,7 +147,7 @@ export default function Resume() {
                   
                   <div className="ml-6">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h4 className="text-base font-semibold text-gray-900 dark:text-white">
                         {edu.degree}
                       </h4>
                       <span className="text-sm text-primary-600 dark:text-primary-400 font-medium">
@@ -162,7 +180,7 @@ export default function Resume() {
           >
             <div className="flex items-center mb-8">
               <BriefcaseIcon className="h-8 w-8 text-primary-600 mr-3" />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Experience</h3>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Experience</h3>
             </div>
             
             <div className="space-y-6">
@@ -177,7 +195,7 @@ export default function Resume() {
                   
                   <div className="ml-6">
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+                      <h4 className="text-base font-semibold text-gray-900 dark:text-white">
                         {exp.position}
                       </h4>
                       <span className="text-sm text-primary-600 dark:text-primary-400 font-medium">

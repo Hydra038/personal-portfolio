@@ -17,7 +17,7 @@ export default function Projects() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Featured Projects
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -40,15 +40,15 @@ export default function Projects() {
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">15+</div>
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">15+</div>
                 <div className="text-gray-600 dark:text-gray-300">Projects Built</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">8+</div>
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">8+</div>
                 <div className="text-gray-600 dark:text-gray-300">Technologies Used</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">3+</div>
+                <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">3+</div>
                 <div className="text-gray-600 dark:text-gray-300">Years Learning</div>
               </div>
             </div>

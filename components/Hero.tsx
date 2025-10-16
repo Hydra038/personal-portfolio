@@ -44,7 +44,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white leading-tight"
           >
             Victor Kipkirui
           </motion.h1>
@@ -54,7 +54,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+            className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
           >
             Computer Science Student & Software Developer
           </motion.p>
@@ -64,7 +64,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
+            className="text-base text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
           >
             Computer Science student at University of Eldoret, passionate about creating innovative solutions 
             and building amazing web experiences. Let's turn ideas into reality through code.
@@ -79,7 +79,7 @@ export default function Hero() {
           >
             <button
               onClick={scrollToProjects}
-              className="btn-primary text-lg px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2"
+              className="btn-primary text-base px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 inline-flex items-center space-x-2"
             >
               <span>View My Work</span>
               <ArrowDownIcon className="h-5 w-5" />
