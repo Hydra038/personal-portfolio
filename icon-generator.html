@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Victor Kipkirui - Icon Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+        }
+        .icon-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .icon {
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 72px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        }
+        .gradient1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .gradient3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .gradient4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .gradient5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .gradient6 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .instructions {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Victor Kipkirui - Portfolio Icons</h1>
+    
+    <div class="icon-container">
+        <div class="icon gradient1">VK</div>
+        <div class="icon gradient2">VK</div>
+        <div class="icon gradient3">VK</div>
+        <div class="icon gradient4">VK</div>
+        <div class="icon gradient5">VK</div>
+        <div class="icon gradient6">VK</div>
+    </div>
+
+    <div class="instructions">
+        <h3>Generated Favicon Sizes:</h3>
+        <div id="canvases"></div>
+        <p><strong>Instructions:</strong></p>
+        <ol>
+            <li>Right-click on any icon above to save as image</li>
+            <li>Use the generated canvases below for different favicon sizes</li>
+            <li>Replace the favicon.ico file in your public folder</li>
+            <li>You can also use online tools like <a href="https://favicon.io" target="_blank">favicon.io</a> to convert to .ico format</li>
+        </ol>
+    </div>
+
+    <script>
+        // Generate different sized favicons
+        const sizes = [16, 32, 48, 64, 128, 256];
+        const container = document.getElementById('canvases');
+        
+        sizes.forEach(size => {
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            canvas.style.width = size + 'px';
+            canvas.style.height = size + 'px';
+            
+            const ctx = canvas.getContext('2d');
+            
+            // Create gradient
+            const gradient = ctx.createLinearGradient(0, 0, size, size);
+            gradient.addColorStop(0, '#667eea');
+            gradient.addColorStop(1, '#764ba2');
+            
+            // Draw background
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, size, size);
+            
+            // Draw text
+            ctx.fillStyle = 'white';
+            ctx.font = `bold ${size * 0.4}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,0.3)';
+            ctx.shadowBlur = size * 0.02;
+            ctx.shadowOffsetX = size * 0.01;
+            ctx.shadowOffsetY = size * 0.01;
+            ctx.fillText('VK', size/2, size/2);
+            
+            // Add label
+            const label = document.createElement('div');
+            label.textContent = `${size}x${size}px`;
+            label.style.textAlign = 'center';
+            label.style.fontSize = '12px';
+            label.style.color = '#666';
+            
+            const wrapper = document.createElement('div');
+            wrapper.style.display = 'inline-block';
+            wrapper.style.margin = '10px';
+            wrapper.appendChild(canvas);
+            wrapper.appendChild(label);
+            
+            container.appendChild(wrapper);
+            
+            // Add download functionality
+            canvas.addEventListener('click', () => {
+                const link = document.createElement('a');
+                link.download = `vk-icon-${size}x${size}.png`;
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>
