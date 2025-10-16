@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
     // Create transporter (configure with your email service)
     // For Gmail, you'll need to use App Passwords
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: 'gmail', // or your email service
       auth: {
         user: process.env.EMAIL_USER, // Your email
